@@ -1,8 +1,3 @@
--- creando la base de datos
-CREATE DATABASE crudnodejsmysql;
---usando la base de datos
-use crudnodejsmysql;
-
 CREATE TABLE customers(
 	id int (6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	name varchar (50) NOT NULL,
