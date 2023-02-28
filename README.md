@@ -12,28 +12,10 @@ git clone https://github.com/AlanCienega/crud.git
 npm i
 ```
 
-### crea una base de datos en mysql llamada crudnodejsmysql
+### levanta tus contenedores
+
+viene instalado nodemon para que se reflejen tus cambios al momento
 
 ```
-CREATE DATABASE crudnodejsmysql;
+docker compose up
 ```
-
-### crea y configura tu archivo env
-
-```
-cp .env.example .env
-```
-
-### ejecuta la migracion de la tabla
-
-```
-npm run migrate
-```
-
-### ahora solo inicia el servidor y la aplicacion estara en localhost:3000 o el puerto que definas
-
-```
-npm run dev
-```
-
-### alternativamente puedes usar el archivo db.sql

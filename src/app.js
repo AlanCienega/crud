@@ -18,11 +18,11 @@ app.use(
     mysql,
     {
       //escribimos la configuracion de mysql
-      host: "db",
-      user: "root",
-      password: "secret",
-      port: 3306,
-      database: "crudnodejsmysql",
+      host: process.env.DB_HOST,
+      user: process.env.DB_USERNAME,
+      password: process.env.MYSQL_ROOT_PASSWORD,
+      port: process.env.DB_PORT,
+      database: process.env.MYSQL_DATABASE,
     },
     "single"
   )
@@ -36,7 +36,6 @@ app.use("/", customerRoutes); //applicacion, ejecuta customerRoutes cuando entre
 app.use(express.static(path.join(__dirname, "public"))); //encuantra la carpeta public a partir de la direccion actual
 
 //iniciando el servidor
-app.listen(app.get("port"), () => {
-  //ya sea que se obtiene o es el definido 3000
-  console.log("server on port 3000");
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`server on port ${process.env.PORT || 3000}`);
 });

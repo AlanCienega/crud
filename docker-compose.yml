@@ -1,5 +1,15 @@
 version: "3.9"
 services:
+  web:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    links:
+      - db
+    volumes:
+      - .:/home/app
   db:
     image: mysql:8.0
     environment:
@@ -11,11 +21,5 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./database/create-table.sql:/docker-entrypoint-initdb.d/init.sql
-  web:
-    build: .
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
 volumes:
   db_data:
